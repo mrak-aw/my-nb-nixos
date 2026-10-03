@@ -23,7 +23,7 @@
   hardware.i2c.enable = true;
 
   ############################################################################
-  # GRAPHICS (AMD)
+  # GRAPHICS
   ############################################################################
 
   hardware.graphics = {
@@ -91,7 +91,7 @@
 
   services.displayManager.autoLogin = {
     enable = true;
-    user = "nix20mg";
+    user = "nix-nb";
   };
 
   virtualisation.libvirtd.enable = true;
@@ -159,7 +159,7 @@
 
   users.users."nixnb" = {
     isNormalUser = true;
-    group = "nix";
+    group = "nixnb";
     description = "NIX OS";
     extraGroups = [ "networkmanager" "wheel" "i2c" "kvm" "libvirtd" "adbusers" ];
     packages = with pkgs; [ ];
@@ -224,6 +224,7 @@
       autoLock = true;
     };
 
+    configFile."baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
     configFile."kwinrc"."Effect-overview"."BorderActivate" = "";
   };
 };
